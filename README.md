@@ -1,4 +1,54 @@
-# Hópverkefni 2
+# Hvað á að gera??? 
+
+## Uppsetning: 
+
+Til að fá verkefnið til ykkur:
+
+Verður fyrst að fara inn í þann skrá sem þið viljið hafa verkefnið í ( með cd )
+
+Þá afrítið verkefnið frá GitHub:
+```sh
+git clone https://github.com/anjrv/HopVerkefni2.git
+```
+
+Þegar það er búið þurfið þið að sækja npm tól og tæki:
+```sh
+npm install
+```
+
+Það ætti flest öll tól og tæki að virka og ég er búin að setja eitthvað af
+útlítsupplýsingum inn í config skrá.
+
+## Vinnsla: 
+
+Áður en gert eru einhverjar breytingar er gott að kanna hvort REPOið
+hefur verið uppfært af einhverjum öðrum. Getum gert það með:
+```sh
+git remote update
+git status -uno
+```
+
+Þá viljum við uppfæra okkar local eintak með því að gera:
+```sh
+git pull origin master
+```
+
+Þegar farið er að vinna í verkefnið verður að keyra það með:
+```sh
+npm run dev
+```
+Javascript er þýdd með rollup og SASS er þýdd af sass-watch.
+Ef þau forrit eru ekki í gangi (semsagt ef ekki var keyrt með npm run dev)
+Þá verður SASS ekki þýdd yfir á CSS og engar breytingar sést.
+Sama gildir um Javascript.
+
+Þegar við erum búnir að gera einhverjar gáfulegar breytingar er nátturlega gott
+að senda þær breytingar á GitHub. Gerum það með:
+```sh
+git push origin master
+```
+
+# Hópverkefni 2 - Frá kennara
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
