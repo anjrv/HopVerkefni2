@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const isLecturePage = page.classList.contains('lecture-page');
 
   if (isLecturePage) {
-    // Ef erum á lecturepage skulum hlaða fyrirlestrar úr localstorage
+    // Ef við erum á lecturepage skulum hlaða fyrirlestur
   } else {
     const list = new List();
     list.load();
