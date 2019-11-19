@@ -5,11 +5,13 @@
   width: 100%;
   padding-top: 20vh;
   padding-bottom: 20vh;
-  margin-bottom: 2rem;
+  margin-bottom: $gutter * 2;
   text-align: center;
-  background: url("../img/header.jpg") 50% 50%;
-  background-attachment: fixed;
-  background-size: cover;
+  background: $color-darkgray no-repeat cover;
+
+  &--index {
+    background-image: url("../img/header.jpg");
+  }
 
   &__protection {
     position: absolute;
@@ -27,6 +29,7 @@
     z-index: 1;
 
     font-style: $font-title;
+    font-size: 3rem;
     font-weight: bold;
   }
 
@@ -42,26 +45,36 @@
 .selection {
   display: flex;
   list-style: none;
-  flex-direction: row;
   justify-content: center;
 
   &__button {
-    padding: 10px;
+    padding: 10px 20px;
     margin-right: 20px;
     margin-left: 20px;
 
     font-style: $font-title;
+    font-size: 1.5rem;
     font-weight: bold;
+
+    cursor: pointer;
 
     background-color: $color-lightgray;
 
     border: 0;
-    border-radius: 10px;
+    border-radius: 15px;
 
-    transition: $transition;
+    transition: background-color $transition;
 
     &:hover {
       background-color: $color-midgray;
+    }
+
+    &--active {
+      background-color: $color-lightgreen;
+
+      &:hover {
+        background-color: $color-darkgreen;
+      }
     }
   }
 }
