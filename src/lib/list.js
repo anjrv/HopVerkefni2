@@ -22,15 +22,15 @@ export default class List {
 
   } */
 
-  createLecture(data) {
-    // Console example of Object json
-    console.log(data);
+  createLectureList(data) {
+    const dataArray = Object.entries(data);
+    console.log(dataArray);
   }
 
   load() {
     empty(this.container);
     this.getData()
-      .then((data) => this.createLecture(data))
+      .then((data) => this.createLectureList(data))
       // TODO:
       // .then((data) => TODO, function to filter lectures )
       // .then((data) => TODO, function to show selected lectures )

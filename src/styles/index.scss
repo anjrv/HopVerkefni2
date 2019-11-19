@@ -1,0 +1,67 @@
+@import "config";
+
+.intro {
+  position: relative;
+  width: 100%;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: url("../img/header.jpg") 50% 50%;
+  background-attachment: fixed;
+  background-size: cover;
+
+  &__protection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+
+    font-style: $font-title;
+    font-weight: bold;
+  }
+
+  &__course {
+    position: relative;
+    z-index: 1;
+
+    font-style: $font-text;
+    text-transform: uppercase;
+  }
+}
+
+.selection {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: center;
+
+  &__button {
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    font-style: $font-title;
+    font-weight: bold;
+
+    background-color: $color-lightgray;
+
+    border: 0;
+    border-radius: 10px;
+
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-midgray;
+    }
+  }
+}
