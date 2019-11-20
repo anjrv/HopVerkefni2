@@ -74,8 +74,7 @@ export default class List {
     this.getData()
       .then((data) => this.createItemList(data))
       // TODO:
-      // .then((data) => TODO, function to filter lectures )
-      // .then((data) => TODO, function to show selected lectures )
+      // .then((data) => TODO, function to filter lectures according to menu )
       .catch((error) => {
         throw new Error(error);
       });
