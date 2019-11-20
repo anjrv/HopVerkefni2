@@ -11,7 +11,7 @@ export default class List {
     return fetch(this.url)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Gat ekki sótt fyrirlestra');
+          throw new Error('Gat ekki sótt');
         }
         return response.json();
       });
