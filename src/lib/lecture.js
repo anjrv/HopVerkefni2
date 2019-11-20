@@ -15,11 +15,11 @@ export default class Lecture {
         return response.json();
       })
       .then((data) => {
-        const found = data.lectures.find((i) => i.slug === slug);
-        if (!found) {
+        const result = data.lectures.find((object) => object.slug === slug);
+        if (!result) {
           throw new Error('Ekki til');
         }
-        return found;
+        return result;
       });
   }
 
