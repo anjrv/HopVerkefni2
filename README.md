@@ -42,8 +42,14 @@ Ef þau forrit eru ekki í gangi (semsagt ef ekki var keyrt með npm run dev)
 Þá verður SASS ekki þýdd yfir á CSS og engar breytingar sést.
 Sama gildir um Javascript.
 
-Þegar við erum búnir að gera einhverjar gáfulegar breytingar er nátturlega gott
-að senda þær breytingar á GitHub. Gerum það með:
+Þegar við erum búnir að gera einhverjar gáfulegar breytingar er gott
+að kanna hvort syntaxið er ekki í lagi hjá okkur:
+```sh
+npm run test
+```
+
+Þegar við erum sáttir að allt er í góðu lagi er kominn tími til að senda 
+breytingar okkar á GitHub:
 ```sh
 git push origin master
 ```
