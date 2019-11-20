@@ -27,7 +27,7 @@ export default class List {
       img.setAttribute('alt', '');
       thumb.appendChild(img);
     } else {
-      thumb.classList.add('listItem__thumbnail--none');
+      thumb.classList.add('lecture__thumbnail--none');
     }
 
     const category = el('span', object.category);
