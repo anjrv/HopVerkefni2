@@ -38,7 +38,7 @@ export default class List {
     textElements.classList.add('lecture__texts');
 
     const text = el('div', textElements);
-    text.classList.add('lecture__bottom');
+    text.classList.add('lecture__contents');
 
     const item = el('a', image, text);
     item.classList.add('lecture__button');
@@ -47,15 +47,23 @@ export default class List {
     return item;
   }
 
-  // Early variant, need to add code to account for lectures__row
   createItemList(data) {
     const myData = Object.keys(data).map((key) => data[key]);
     const lectures = document.getElementsByClassName('lectures');
-    // Get inner values
-    myData[0].forEach((object) => {
+
+    let lecturesRow = el('div');
+    lecturesRow.classList.add('lectures__row');
+
+    myData[0].forEach((object, index) => {
+      if (index % 3 === 0 && index !== 0) {
+        lectures[0].appendChild(lecturesRow);
+        lecturesRow = el('div');
+        lecturesRow.classList.add('lectures__row');
+      }
       const lecturesColumn = el('div', this.createItem(object));
       lecturesColumn.classList.add('lectures__col');
-      lectures[0].appendChild(lecturesColumn);
+      lecturesRow.appendChild(lecturesColumn);
+      if (myData[0].length % 3 !== 0) lectures[0].appendChild(lecturesRow);
     });
   }
 
