@@ -18,14 +18,16 @@ export default class List {
   }
 
   createItem(object) {
-    const image = el('div');
-    image.classList.add('lecture__image');
+    const thumb = el('div');
+    thumb.classList.add('lecture__thumbnail');
 
     if (object.thumbnail) {
       const img = el('img');
       img.setAttribute('src', object.thumbnail);
       img.setAttribute('alt', '');
-      image.appendChild(img);
+      thumb.appendChild(img);
+    } else {
+      thumb.classList.add('listItem__thumbnail--none');
     }
 
     const category = el('span', object.category);
@@ -40,7 +42,7 @@ export default class List {
     const text = el('div', textElements);
     text.classList.add('lecture__contents');
 
-    const item = el('a', image, text);
+    const item = el('a', thumb, text);
     item.classList.add('lecture__button');
     item.setAttribute('href', `fyrirlestur.html?slug=${object.slug}`);
 
