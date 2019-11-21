@@ -3,8 +3,8 @@
  * Skila JSON af localStorage
  */
 export function loadLectures() {
-  const saved = JSON.parse(localStorage.getItem('saved_lectures'));
-  return saved;
+  const completed = JSON.parse(localStorage.getItem('completed_lecture'));
+  return completed;
 }
 
 /**
@@ -14,14 +14,14 @@ export function loadLectures() {
  * @param {*} slug slug skilgreining úr lectures.json
  */
 export function saveLecture(slug) {
-  const saved = loadLectures();
+  const completed = loadLectures();
 
-  const index = saved.indexOf(slug);
+  const index = completed.indexOf(slug);
 
   if (index >= 0) {
-    saved.splice(index, 1);
+    completed.splice(index, 1);
   } else {
-    saved.push(slug);
+    completed.push(slug);
   }
-  localStorage.setItem('saved_lectures', JSON.stringify(saved));
+  localStorage.setItem('completed_lecture', JSON.stringify(completed));
 }
