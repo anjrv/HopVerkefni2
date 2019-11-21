@@ -145,7 +145,8 @@ export function createElement(object) {
   intro.classList.add('intro');
   if (object.image) {
     intro.style.backgroundImage = `url("/${object.image}")`;
-  }
+  } else intro.style.backgroundImage = 'url("../../img/code.jpg")';
+  // else ef ekkert image er til staðar til að setja í haus
 
   const protection = el('div');
   protection.classList.add('intro__protection');
