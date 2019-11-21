@@ -1,12 +1,17 @@
 import { el } from './helpers';
 
 export default class Lecture {
+  // Frumstilling
   constructor() {
     this.container = document.querySelector('.lecture');
     this.url = 'lectures.json';
   }
 
-  getData(slug) {
+  /**
+   * Sækir gögn með réttan slug identification
+   * @param {} id slug key
+   */
+  getData(id) {
     return fetch(this.url)
       .then((response) => {
         if (!response.ok) {
@@ -15,7 +20,7 @@ export default class Lecture {
         return response.json();
       })
       .then((data) => {
-        const result = data.lectures.find((object) => object.slug === slug);
+        const result = data.lectures.find((object) => object.slug === id);
         if (!result) {
           throw new Error('Ekki til');
         }
@@ -23,20 +28,26 @@ export default class Lecture {
       });
   }
 
+  /**
+   * Leitar eftir id gildi í window url
+   * Kallar á getData með urlið ef það fannst
+   * Kallar svo á element constructor fyrir data
+   */
   load() {
     const search = new URLSearchParams(window.location.search);
-    const slug = search.get('slug');
+    const id = search.get('id');
 
-    if (!slug || slug === '') {
+    if (!id || id === '') {
       console.error('Engin fyrirlestur');
       return;
     }
 
-    this.getData(slug)
+    this.getData(id)
       .then((data) => {
         console.log(data); // eslint-disable-line
 
         // TODO búa til öll elements fyrir fyrirlestur
+
         // Til að sjá hvort það er ekki endilega að velja rétt
         const category = el('span', data.category);
         category.style.fontSize = 'xx-large';
