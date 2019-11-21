@@ -24,7 +24,7 @@ export default class List {
 
   /**
    * Býr til lectures item list með því að búa til
-   * rows og cols og filla þær með því að kalla á
+   * rows og cols og fylla þær með því að kalla á
    * createItem()
    *
    * @param {*} data Gögn úr url

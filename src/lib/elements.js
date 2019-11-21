@@ -38,15 +38,18 @@ export function createItem(object) {
   return item;
 }
 
+
 /**
- * Create the correct element based on content type
- * @param {*} item item to use
+ * Býr til réttan element eftir tegund
+ * @param {*} item item object sem er notað fyrir upplýsingar
+ * @param {*} parent foreldri þess elements sem er búið til
  */
 function createContent(item, parent) {
   const typeOfContent = item.type;
   const content = parent;
-  let cont;
   let container;
+  let cont;
+
 
   switch (typeOfContent) {
     default:

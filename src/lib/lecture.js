@@ -28,8 +28,8 @@ export default class Lecture {
   }
 
   /**
-   * Leitar eftir id gildi í window url
-   * Kallar á getData með urlið ef það fannst
+   * Leitar eftir slug gildi í window url
+   * Kallar á getData ef það fannst
    * Kallar svo á element constructor fyrir data
    */
   load() {
@@ -43,7 +43,6 @@ export default class Lecture {
 
     this.getData(slug)
       .then((data) => {
-        console.log(data); // eslint-disable-line
         createElement(data);
       })
       .catch((error) => {
