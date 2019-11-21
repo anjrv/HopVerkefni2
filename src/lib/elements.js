@@ -38,6 +38,57 @@ export function createItem(object) {
   return item;
 }
 
+/**
+ * Create the correct element based on content type
+ * @param {*} item item to use
+ */
+function createContent(item, parent) {
+  const typeOfContent = item.type;
+  console.log(item.type); // eslint-disable-line
+  const content = parent;
+  let cont;
+
+  switch (typeOfContent) {
+    default:
+      console.error('No content');
+      break;
+
+    case 'youtube':
+      console.log(item);
+      console.log(item.data);
+      cont = document.createElement('iframe');
+      cont.style.frameborder = '0';
+      cont.style.allowfullscreen = '0';
+      cont.src = item.data;
+      content.appendChild(cont);
+      break;
+
+    case 'text':
+      console.log('foo');
+      break;
+
+    case 'image':
+      console.log('foo');
+      break;
+
+    case 'quote':
+      console.log('foo');
+      break;
+
+    case 'heading':
+      console.log('foo');
+      break;
+
+    case 'code':
+      console.log('foo');
+      break;
+
+    case 'list':
+      console.log('foo');
+      break;
+  }
+}
+
 export function createElement(object) {
   // HEADER PORTION
   const page = document.querySelector('body');
@@ -66,9 +117,9 @@ export function createElement(object) {
   const content = el('div');
   object.content.forEach((item) => {
     console.log(item); // eslint-disable-line
-    // For each piece of content create element
+    // For each piece of content create an element
+    createContent(item, content);
   });
-
   page.appendChild(content);
 
   // FOOTER PORTION
