@@ -3,7 +3,6 @@ import { createElement } from './elements';
 export default class Lecture {
   // Frumstilling
   constructor() {
-    this.container = document.querySelector('.lecture');
     this.url = 'lectures.json';
   }
 
@@ -35,14 +34,14 @@ export default class Lecture {
    */
   load() {
     const search = new URLSearchParams(window.location.search);
-    const id = search.get('id');
+    const slug = search.get('slug');
 
-    if (!id || id === '') {
+    if (!slug || slug === '') {
       console.error('Engin fyrirlestur');
       return;
     }
 
-    this.getData(id)
+    this.getData(slug)
       .then((data) => {
         console.log(data); // eslint-disable-line
         createElement(data);
