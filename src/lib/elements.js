@@ -38,6 +38,51 @@ export function createItem(object) {
   return item;
 }
 
-export function createElement() {
-  // get data/type, do stuff
+export function createElement(object) {
+  // HEADER PORTION
+  const page = document.querySelector('body');
+
+  const intro = el('header');
+  intro.classList.add('intro');
+  if (object.image) {
+    intro.style.backgroundImage = `url("/${object.image}")`;
+  }
+
+  const protection = el('div');
+  protection.classList.add('intro__protection');
+  intro.appendChild(protection);
+
+  const course = el('span', object.category);
+  course.classList.add('intro__course');
+  intro.appendChild(course);
+
+  const title = el('h1', object.title);
+  title.classList.add('intro__title');
+  intro.appendChild(title);
+
+  page.appendChild(intro);
+
+  // CONTENT PORTION
+  const content = el('div');
+  object.content.forEach((item) => {
+    console.log(item); // eslint-disable-line
+    // For each piece of content create element
+  });
+
+  page.appendChild(content);
+
+  // FOOTER PORTION
+  const footer = el('footer');
+  footer.classList.add('outro');
+
+  const finish = el('button', 'Klára fyrirlestur');
+  finish.classList.add('outro__button');
+  footer.appendChild(finish);
+
+  const back = el('a', 'Til baka');
+  back.classList.add('outro__button');
+  back.setAttribute('href', 'index.html');
+  footer.appendChild(back);
+
+  page.appendChild(footer);
 }

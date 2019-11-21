@@ -1,4 +1,4 @@
-import { el } from './helpers';
+import { createElement } from './elements';
 
 export default class Lecture {
   // Frumstilling
@@ -45,16 +45,7 @@ export default class Lecture {
     this.getData(id)
       .then((data) => {
         console.log(data); // eslint-disable-line
-
-        // TODO búa til öll elements fyrir fyrirlestur
-
-        // Til að sjá hvort það er ekki endilega að velja rétt
-        const category = el('span', data.category);
-        category.style.fontSize = 'xx-large';
-        this.container.appendChild(category);
-        const heading = el('h2', data.title);
-        heading.style.fontSize = 'xx-large';
-        this.container.appendChild(heading);
+        createElement(data);
       })
       .catch((error) => {
         throw new Error(error);
