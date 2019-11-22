@@ -58,20 +58,11 @@ function createContent(item, parent) {
     case 'youtube':
       container = document.createElement('div');
       container.classList.add('lecture__video-container');
-      container.style.position = 'relative';
-      container.style.width = '100%';
-      container.style.paddingBottom = '56.25%';
-      container.style.overflow = 'hidden';
 
       cont = document.createElement('iframe');
       cont.classList.add('lecture__video');
       cont.style.frameborder = '0';
       cont.style.allowfullscreen = '0';
-      cont.style.position = 'absolute';
-      cont.style.top = '0';
-      cont.style.left = '0';
-      cont.style.width = '100%';
-      cont.style.height = '100%';
       cont.src = item.data;
 
       container.appendChild(cont);
