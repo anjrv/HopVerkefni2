@@ -18,3 +18,11 @@
     height: 100%;
   }
 }
+
+.outro {
+  &__button {
+    &--completed {
+      color: $color-lightgreen;
+    }
+  }
+}

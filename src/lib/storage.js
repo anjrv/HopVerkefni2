@@ -8,6 +8,7 @@ export function loadLectures() {
 }
 
 export function completeLecture(slug) {
+  console.log(`You are trying to save ${slug}`)
   // TODO vista núverandi slug í localStorage ef verið er að skrá fyrirlestur sem kláraður
   // fjarlægja núverandi slug ef verið er að skrá fyrirlestur sem ekki kláraður
 }

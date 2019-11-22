@@ -1,4 +1,5 @@
 import { el } from './helpers';
+import { completeLecture, loadLectures } from './storage';
 
 /**
  * Notað til að búa til þær elements sem koma fram í list
@@ -166,8 +167,23 @@ export function createElement(object) {
   const footer = el('footer');
   footer.classList.add('outro');
 
-  const finish = el('button', 'Klára fyrirlestur');
+  const search = new URLSearchParams(window.location.search);
+  const slug = search.get('slug');
+  const currentSlugs = loadLectures();
+
+  const finish = document.createElement('button');
   finish.classList.add('outro__button');
+  if (!currentSlugs === null && currentSlugs.includes(slug)) {
+    finish.innerHTML = '✓ Kláraður fyrirlestur';
+    finish.classList.toggle('outro__button--completed');
+  } else finish.innerHTML = 'Klára fyrirlestur';
+  finish.addEventListener('click', () => {
+    completeLecture(slug)
+    if (!currentSlugs === null && currentSlugs.includes(slug)) {
+      finish.innerHTML = '✓ Kláraður fyrirlestur';
+      finish.classList.toggle('outro__button--completed');
+    } else finish.innerHTML = 'Klára fyrirlestur';
+  });
   footer.appendChild(finish);
 
   const back = el('a', 'Til baka');
@@ -175,5 +191,6 @@ export function createElement(object) {
   back.setAttribute('href', 'index.html');
   footer.appendChild(back);
 
-  page.appendChild(footer);
+  // Insert in HTML before <script>
+  page.insertBefore(footer, page.lastElementChild);
 }
