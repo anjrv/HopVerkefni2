@@ -10,6 +10,7 @@ export function loadLectures() {
 /**
  * Skrá eitthvað slug sem klárað ef það er ekki klárað
  * Skrá eitthvað slug sem ekki klárað ef það er klárað
+ *
  * @param {*} slug slug sem er skráð
  */
 export function completeLecture(slug) {
@@ -33,6 +34,7 @@ export function loadFilters() {
 /**
  * Skrá eitthvað type sem filtered ef það er ekki filtered
  * Skrá eitthvað slug sem ekki filtered ef það er filtered
+ *
  * @param {*} type týpan sem verður sett í filter
  */
 export function toggleFilter(type) {

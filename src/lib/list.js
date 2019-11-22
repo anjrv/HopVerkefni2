@@ -6,7 +6,6 @@ export default class List {
   // Frumstilling
   constructor() {
     this.container = document.querySelector('.lectures');
-    this.menu = document.querySelectorAll('.menu__button');
     this.url = 'lectures.json';
   }
 
@@ -24,8 +23,8 @@ export default class List {
   }
 
   /**
-  * Skoðar filters og eyðir út úr data það sem
-  * á ekki sjást.
+  * Skoðar filters og fjárlægir það sem
+  * á ekki sjást á skjánum.
   *
   * @param {*} data Gögn
   */
@@ -84,8 +83,24 @@ export default class List {
     }
 
     // Endurstillir Y scroll position
+    // Gert svo að window myndi ekki hoppa þegar verið er að reloada
     const scrollpos = localStorage.getItem('scrollpos');
     if (scrollpos) window.scrollTo(0, scrollpos);
+  }
+
+  /**
+  * Notað til að endurhlaða lectures þegar filter er sett í gang
+  * Fær JSON data og kallar á föllin til að búa til lectures
+  * Virkar eins og load() en takkar halda stöðuna
+  */
+  reload() {
+    empty(this.container);
+    this.getData()
+      .then((data) => this.filterItemList(data))
+      .then((data) => this.createItemList(data))
+      .catch((error) => {
+        throw new Error(error);
+      });
   }
 
   /**
@@ -95,6 +110,7 @@ export default class List {
     const filterState = loadFilters();
     let slugIndex;
 
+    // Listener og events fyrir HTML takka
     const htmlButton = document.getElementById('htmlButton');
     slugIndex = filterState.indexOf('html');
 
@@ -107,15 +123,10 @@ export default class List {
       localStorage.setItem('scrollpos', window.scrollY);
 
       toggleFilter('html');
-      empty(this.container);
-      this.getData()
-        .then((data) => this.filterItemList(data))
-        .then((data) => this.createItemList(data))
-        .catch((error) => {
-          throw new Error(error);
-        });
+      this.reload();
     });
 
+    // Listener og events fyrir CSS takka
     const cssButton = document.getElementById('cssButton');
     slugIndex = filterState.indexOf('css');
 
@@ -128,15 +139,10 @@ export default class List {
       localStorage.setItem('scrollpos', window.scrollY);
 
       toggleFilter('css');
-      empty(this.container);
-      this.getData()
-        .then((data) => this.filterItemList(data))
-        .then((data) => this.createItemList(data))
-        .catch((error) => {
-          throw new Error(error);
-        });
+      this.reload();
     });
 
+    // Listener og events fyrir JS takka
     const jsButton = document.getElementById('jsButton');
     slugIndex = filterState.indexOf('javascript');
 
@@ -149,13 +155,7 @@ export default class List {
       localStorage.setItem('scrollpos', window.scrollY);
 
       toggleFilter('javascript');
-      empty(this.container);
-      this.getData()
-        .then((data) => this.filterItemList(data))
-        .then((data) => this.createItemList(data))
-        .catch((error) => {
-          throw new Error(error);
-        });
+      this.reload();
     });
   }
 

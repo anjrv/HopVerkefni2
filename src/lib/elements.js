@@ -50,7 +50,8 @@ export function createItem(object) {
 }
 
 /**
- * Býr til réttan element eftir tegund
+ * Notar switch til að búa til réttan element eftir tegund
+ *
  * @param {*} item item object sem er notað fyrir upplýsingar
  * @param {*} parent foreldri þess elements sem er búið til
  */
@@ -142,6 +143,11 @@ function createContent(item, parent) {
   }
 }
 
+/**
+ * Elements fyrir lectures/index siðunni
+ *
+ * @param {*} object hluturinn sem er notaður
+ */
 export function createElement(object) {
   // HEADER PORTION
   const page = document.querySelector('body');
