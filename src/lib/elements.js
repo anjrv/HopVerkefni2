@@ -15,6 +15,7 @@ export function createItem(object) {
     const img = el('img');
     img.setAttribute('src', object.thumbnail);
     img.setAttribute('alt', 'thumbnail');
+    img.classList.add('lectures__thumbnail-img');
     thumb.appendChild(img);
   } else {
     thumb.classList.add('lectures__thumbnail--none');
