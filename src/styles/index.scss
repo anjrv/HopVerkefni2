@@ -1,9 +1,50 @@
 @import "config";
 
 // TODO layout fyrir index síðunna
-
 .lectures {
+  margin: 0 auto;
+
+  @media (max-width: $max-width - 1) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+
+  &__row {
+    @include row;
+    flex-wrap: wrap;
+
+    @media (min-width: 1000px) {
+      margin-top: $gutter * 2;
+      margin-bottom: $gutter * 2;
+    }
+  }
+
+  &__col {
+    @include columns(12);
+    margin-bottom: $gutter;
+
+    @media (min-width: 1000px) {
+      @include columns(4);
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__contents {
+    padding: 10px;
+    background-color: $color-lightgray;
+  }
+
   &__thumbnail-img {
     width: 100%;
+  }
+
+  &__button {
+    font-size: 1.2rem;
+    color: $color-black;
+  }
+
+  &__category {
+    text-transform: uppercase;
   }
 }
