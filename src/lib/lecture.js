@@ -8,6 +8,7 @@ export default class Lecture {
 
   /**
    * Sækir gögn með réttan slug identification
+   *
    * @param {} id slug key
    */
   getData(id) {

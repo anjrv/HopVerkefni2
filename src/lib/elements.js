@@ -8,6 +8,9 @@ import { completeLecture, loadLectures } from './storage';
  * @param {*} object tegund
  */
 export function createItem(object) {
+  const completed = loadLectures();
+  const slugIndex = completed.indexOf(object.slug);
+
   const thumb = el('div');
   thumb.classList.add('lectures__thumbnail');
 
@@ -33,6 +36,12 @@ export function createItem(object) {
   const text = el('div', texts);
   text.classList.add('lectures__contents');
 
+  if (slugIndex > -1) {
+    const tick = el('div', '✓');
+    tick.classList.add('lectures__completed');
+    text.appendChild(tick);
+  }
+
   const item = el('a', thumb, text);
   item.classList.add('lectures__button');
   item.setAttribute('href', `fyrirlestur.html?slug=${object.slug}`);
@@ -40,108 +49,113 @@ export function createItem(object) {
   return item;
 }
 
-
 /**
- * Býr til réttan element eftir tegund
+ * Notar switch til að búa til réttan element eftir tegund
+ *
  * @param {*} item item object sem er notað fyrir upplýsingar
  * @param {*} parent foreldri þess elements sem er búið til
  */
 function createContent(item, parent) {
   const typeOfContent = item.type;
   const content = parent;
-  let container;
-  let cont;
-
+  let i;
+  let j;
 
   switch (typeOfContent) {
     default:
       console.error('No content');
       break;
     case 'youtube':
-      container = document.createElement('div');
-      container.classList.add('lecture__video-container');
+      j = document.createElement('div');
+      j.classList.add('lecture__video-container');
 
-      cont = document.createElement('iframe');
-      cont.classList.add('lecture__video');
-      cont.style.frameborder = '0';
-      cont.style.allowfullscreen = '0';
-      cont.src = item.data;
+      i = document.createElement('iframe');
+      i.classList.add('lecture__video');
+      i.style.frameborder = '0';
+      i.style.allowfullscreen = '0';
+      i.src = item.data;
 
-      container.appendChild(cont);
-      content.appendChild(container);
+      j.appendChild(i);
+      content.appendChild(j);
       break;
     case 'text':
-      container = item.data.split('\n');
-      container.forEach((txt) => {
-        cont = el('p', txt);
-        cont.classList.add('lecture__text');
-        content.appendChild(cont);
+      j = item.data.split('\n');
+      j.forEach((txt) => {
+        i = el('p', txt);
+        i.classList.add('lecture__text');
+        content.appendChild(i);
       });
       break;
     case 'image':
-      container = document.createElement('div');
-      container.classList.add('lecture__image-container');
+      j = document.createElement('div');
+      j.classList.add('lecture__image-container');
 
-      cont = document.createElement('img');
-      cont.classList.add('lecture__image');
-      cont.src = item.data;
-      cont.alt = item.caption;
-      container.appendChild(cont);
+      i = document.createElement('img');
+      i.classList.add('lecture__image');
+      i.src = item.data;
+      i.alt = item.caption;
+      j.appendChild(i);
 
       if (item.caption) {
-        cont = el('p', item.caption);
-        cont.classList.add('lecture__image-caption');
-        container.appendChild(cont);
+        i = el('p', item.caption);
+        i.classList.add('lecture__image-caption');
+        j.appendChild(i);
       }
-      content.appendChild(container);
+
+      content.appendChild(j);
       break;
     case 'quote':
-      container = document.createElement('div');
-      container.classList.add('lecture__quote-container');
+      j = document.createElement('div');
+      j.classList.add('lecture__quote-container');
 
-      cont = el('p', item.data);
-      cont.classList.add('quote__text');
-      container.appendChild(cont);
+      i = el('p', item.data);
+      i.classList.add('lecture__quote-text');
+      j.appendChild(i);
 
-      cont = el('p', item.attribute);
-      cont.classList.add('quote__author');
-      container.appendChild(cont);
+      i = el('p', item.attribute);
+      i.classList.add('lecture__quote-author');
+      j.appendChild(i);
 
-      content.appendChild(container);
+      content.appendChild(j);
       break;
     case 'heading':
-      cont = el('h3', item.data);
-      cont.classList.add('lecture__heading');
+      i = el('h3', item.data);
+      i.classList.add('lecture__heading');
 
-      content.appendChild(cont);
+      content.appendChild(i);
       break;
     case 'code':
-      cont = el('pre', item.data);
-      cont.classList.add('lecture__code');
+      i = el('pre', item.data);
+      i.classList.add('lecture__code');
 
-      content.appendChild(cont);
+      content.appendChild(i);
       break;
     case 'list':
-      container = document.createElement('ul');
-      container.classList.add('lecture__list');
+      j = document.createElement('ul');
+      j.classList.add('lecture__list');
       item.data.forEach((text) => {
-        cont = el('li', text);
-        cont.classList.add('lecture__list-item');
-        container.appendChild(cont);
+        i = el('li', text);
+        i.classList.add('lecture__list-item');
+        j.appendChild(i);
       });
-      content.appendChild(container);
+      content.appendChild(j);
       break;
   }
 }
 
+/**
+ * Elements fyrir lectures/index siðunni
+ *
+ * @param {*} object hluturinn sem er notaður
+ */
 export function createElement(object) {
   // HEADER PORTION
   const page = document.querySelector('body');
   const intro = el('header');
   intro.classList.add('intro');
   if (object.image) {
-    intro.style.backgroundImage = `url("/${object.image}")`;
-  } else intro.style.backgroundImage = 'url("../../img/code.jpg")';
+    intro.style.backgroundImage = `url("../${object.image}")`;
+  } else intro.style.backgroundImage = 'url("../img/code.jpg")';
   // else ef ekkert image er til staðar til að setja í haus
 
   const protection = el('div');
@@ -160,8 +174,12 @@ export function createElement(object) {
 
   // CONTENT PORTION
   const section = document.querySelector('.lecture');
+  let column;
   object.content.forEach((item) => {
-    createContent(item, section);
+    column = el('div');
+    column.classList.add('lecture__column');
+    section.appendChild(column);
+    createContent(item, column);
   });
 
   // FOOTER PORTION
@@ -170,21 +188,29 @@ export function createElement(object) {
 
   const search = new URLSearchParams(window.location.search);
   const slug = search.get('slug');
-  const currentSlugs = loadLectures();
+  let completed = loadLectures();
+  let slugIndex = completed.indexOf(slug);
 
   const finish = document.createElement('button');
   finish.classList.add('outro__button');
-  if (!currentSlugs === null && currentSlugs.includes(slug)) {
+
+  if (slugIndex > -1) {
     finish.innerHTML = '✓ Kláraður fyrirlestur';
     finish.classList.toggle('outro__button--completed');
   } else finish.innerHTML = 'Klára fyrirlestur';
+
   finish.addEventListener('click', () => {
-    completeLecture(slug)
-    if (!currentSlugs === null && currentSlugs.includes(slug)) {
+    completeLecture(slug);
+    completed = loadLectures();
+    slugIndex = completed.indexOf(slug);
+
+    finish.classList.toggle('outro__button--completed');
+
+    if (slugIndex > -1) {
       finish.innerHTML = '✓ Kláraður fyrirlestur';
-      finish.classList.toggle('outro__button--completed');
     } else finish.innerHTML = 'Klára fyrirlestur';
   });
+
   footer.appendChild(finish);
 
   const back = el('a', 'Til baka');
