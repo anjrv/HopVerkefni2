@@ -109,11 +109,11 @@ function createContent(item, parent) {
       j.classList.add('lecture__quote-container');
 
       i = el('p', item.data);
-      i.classList.add('quote__text');
+      i.classList.add('lecture__quote-text');
       j.appendChild(i);
 
       i = el('p', item.attribute);
-      i.classList.add('quote__author');
+      i.classList.add('lecture__quote-author');
       j.appendChild(i);
 
       content.appendChild(j);
@@ -153,10 +153,9 @@ export function createElement(object) {
   const page = document.querySelector('body');
   const intro = el('header');
   intro.classList.add('intro');
-
   if (object.image) {
-    intro.style.backgroundImage = `url("/${object.image}")`;
-  } else intro.style.backgroundImage = 'url("../../img/code.jpg")';
+    intro.style.backgroundImage = `url("../${object.image}")`;
+  } else intro.style.backgroundImage = 'url("../img/code.jpg")';
   // else ef ekkert image er til staðar til að setja í haus
 
   const protection = el('div');
@@ -175,8 +174,12 @@ export function createElement(object) {
 
   // CONTENT PORTION
   const section = document.querySelector('.lecture');
+  let column;
   object.content.forEach((item) => {
-    createContent(item, section);
+    column = el('div');
+    column.classList.add('lecture__column');
+    section.appendChild(column);
+    createContent(item, column);
   });
 
   // FOOTER PORTION

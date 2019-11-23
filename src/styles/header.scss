@@ -7,7 +7,8 @@
   padding-bottom: 20vh;
   margin-bottom: $gutter * 2;
   text-align: center;
-  background: $color-darkgray no-repeat cover;
+  background-color: $color-darkgray;
+  background-size: cover;
 
   &--index {
     background-image: url("../img/header.jpg");
@@ -28,8 +29,8 @@
     position: relative;
     z-index: 1;
 
+    font-family: $font-title;
     font-size: 3rem;
-    font-style: $font-title;
     font-weight: bold;
   }
 
@@ -37,7 +38,7 @@
     position: relative;
     z-index: 1;
 
-    font-style: $font-text;
+    font-family: $font-text;
     text-transform: uppercase;
   }
 }
