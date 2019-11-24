@@ -31,20 +31,25 @@
   }
 
   &__contents {
-    padding: 10px;
-    background-color: $color-lightgray;
-  }
-
-  &__thumbnail-img {
-    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 1;
   }
 
   &__button {
+    display: flex;
+    height: 100%;
     font-size: 1.2rem;
     color: $color-black;
+    flex-direction: column;
+    background-color: $color-lightgray;
   }
 
   &__category {
     text-transform: uppercase;
+  }
+
+  &__thumbnail-img {
+    width: 100%;
   }
 }
