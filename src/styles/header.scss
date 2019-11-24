@@ -31,7 +31,8 @@
 
     font-family: $font-title;
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
   }
 
   &__course {
@@ -39,6 +40,7 @@
     z-index: 1;
 
     font-family: $font-text;
+    font-weight: 600;
     text-transform: uppercase;
   }
 }

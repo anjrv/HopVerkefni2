@@ -1,6 +1,5 @@
 @import "config";
 
-// TODO layout fyrir index síðunna
 .lectures {
   margin: 0 auto;
 
@@ -31,7 +30,9 @@
   }
 
   &__contents {
+    position: relative;
     display: flex;
+    padding: 10px;
     flex-direction: column-reverse;
     flex-grow: 1;
   }
@@ -39,17 +40,45 @@
   &__button {
     display: flex;
     height: 100%;
-    font-size: 1.2rem;
     color: $color-black;
+    text-decoration: none;
     flex-direction: column;
     background-color: $color-lightgray;
+
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-darkgray;
+    }
+  }
+
+  &__title {
+    font-family: $font-title;
+    font-size: 2rem;
+    font-weight: 600;
+
+    letter-spacing: 0.05rem;
   }
 
   &__category {
+    font-family: $font-title;
+    font-size: 1rem;
     text-transform: uppercase;
   }
 
   &__thumbnail-img {
     width: 100%;
+  }
+
+  &__completed {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: 10px;
+
+    font-size: 3rem;
+    font-weight: 600;
+    color: $color-lightgreen;
   }
 }
