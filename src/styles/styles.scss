@@ -7,6 +7,8 @@
 * {
   padding: 0;
   margin: 0;
+  text-decoration: none;
+  border: 0;
 }
 
 *,
@@ -26,8 +28,7 @@ html { /* stylelint-disable-line */
 
 main { /* stylelint-disable-line */
   max-width: $max-width;
-
-  margin: 0 auto;
+  margin: auto;
 }
 
 img { /* stylelint-disable-line */

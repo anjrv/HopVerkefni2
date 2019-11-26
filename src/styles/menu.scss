@@ -24,7 +24,6 @@
     margin-right: 20px;
     margin-left: 20px;
 
-    font-family: $font-title;
     font-size: 1.5rem;
     font-weight: bold;
 
@@ -32,11 +31,10 @@
 
     background-color: $color-lightgray;
 
-    border: 0;
     border-radius: 15px;
 
     outline: none;
-    transition: background-color $transition;
+    transition: $transition;
 
     @media (max-width: 495px) {
       @include columns(10);

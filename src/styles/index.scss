@@ -1,8 +1,6 @@
 @import "config";
 
 .lectures {
-  margin: 0 auto;
-
   @media (max-width: $max-width - 1) {
     padding-right: $gutter;
     padding-left: $gutter;
@@ -41,7 +39,6 @@
     display: flex;
     height: 100%;
     color: $color-black;
-    text-decoration: none;
     flex-direction: column;
     background-color: $color-lightgray;
 
@@ -53,16 +50,12 @@
   }
 
   &__title {
-    font-family: $font-title;
     font-size: 2rem;
     font-weight: 600;
-
     letter-spacing: 0.05rem;
   }
 
   &__category {
-    font-family: $font-title;
-    font-size: 1rem;
     text-transform: uppercase;
   }
 
