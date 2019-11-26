@@ -1,5 +1,4 @@
-
-//Colors
+// Colors
 $color-black: #000;
 $color-darkgray: #999;
 $color-midgray: #aaa;
@@ -7,38 +6,35 @@ $color-lightgray: #ccc;
 $color-lightgreen: #2d2;
 $color-darkgreen: #1a1;
 
-//Fonts
-$font-text: Lora, "Times New Roman", serif;
-$font-title: Roboto, "Courier New", monospace;
+// Fonts
+// Ástæðan fyrir disable line: Það heldur fram að þessi gildi séu ónotað
+// Svo er ekki, bæði gildi eru í notkun.
+$font-text: Lora, "Times New Roman", serif; /* stylelint-disable-line */
+$font-title: Roboto, "Courier New", monospace; /* stylelint-disable-line */
 
-//Font stærðir sem við eigum að nota eru:
-//Grunn letur stærð: 16
-//Annað: 24 32 48
+// Font stærðir sem við eigum að nota eru:
+// Grunn letur stærð: 16
+// Annað: 24 32 48
 
-//Efni síðu skal ekki vera breiðara en 1200px.
+// Efni síðu skal ekki vera breiðara en 1200px.
 $max-width: 1200px;
 
-//Flest allt er sett upp í 12 dálka grind með 20px gutter.
+// Flest allt er sett upp í 12 dálka grind með 20px gutter.
 $gutter: 20px;
 
-//Fyrir rows
+// Fyrir rows
 @mixin row() {
   display: flex;
   margin-right: -($gutter / 2);
   margin-left: -($gutter / 2);
 }
 
-//Til að skilgreina breiddina
+// Til að skilgreina breiddina á columns
 @mixin columns($col: 1) {
   width: ($col / 12 * 100) * 1%;
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
 
-//Til að laga offset, úr sýnidæmi
-@mixin offset-left($cols: 0) {
-  margin-left: ($cols/12 * 100) * 1%;
-}
-
-//Allar hreyfingar gerast á 300ms með ease-in-out hröðunarfalli.
+// Allar hreyfingar gerast á 300ms með ease-in-out hröðunarfalli.
 $transition: 300ms ease-in-out;

@@ -1,25 +1,35 @@
 @import "config";
 
-.main {
-  margin: 1.5rem;
+.lecture-container {
+  margin: 0 auto;
+
+  @media (max-width: $max-width - 1) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
 }
 
 .lecture {
-  // TODO styles og layout fyrir fyrirlestur
-  margin: 1.5rem;
+  @include row;
+  flex-wrap: wrap;
+  justify-content: center;
+
   font-family: $font-text;
+
+  &__column {
+    margin-bottom: $gutter;
+
+    @include columns(12);
+    @media (min-width: 800px) {
+      @include columns(8);
+    }
+  }
 
   &__video-container {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
     overflow: hidden;
-  }
-
-  &__text {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    line-height: 1.5rem;
   }
 
   &__video {
@@ -30,67 +40,65 @@
     height: 100%;
   }
 
+  &__list-item {
+    margin-bottom: $gutter;
+  }
+
+  &__text {
+    margin-bottom: $gutter;
+    line-height: 1.5rem;
+  }
+
   &__heading {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: $gutter;
     font-family: $font-title;
-    font-size: 24px;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
   }
 
-  &__quote-container {
-    right: 0;
-    left: 0;
-    margin-right: -2rem;
-    margin-bottom: 2rem;
-    margin-left: -2rem;
-    background-color: $color-lightgray;
+  &__image {
+    width: 100%;
+
+    &-caption {
+      font-style: italic;
+    }
   }
 
-  &__image-container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  &__quote {
+    &-container {
+      padding: 20px;
+      margin-right: -$gutter;
+      margin-left: -$gutter;
+      background-color: $color-lightgray;
+    }
+
+    &-author {
+      margin-top: $gutter;
+      font-style: italic;
+    }
   }
-
-  &__code {
-    margin: 1rem;
-  }
-}
-
-.quote__text {
-  padding-top: 1rem;
-  margin: 2rem;
-  font-family: $font-text;
-  font-size: 1rem;
-}
-
-.quote__author {
-  padding-bottom: 1rem;
-  margin-left: 2rem;
-  font-family: $font-text;
-  font-style: italic;
 }
 
 .outro {
   display: flex;
+  padding-bottom: $gutter*2;
+  margin-top: $gutter*3;
   flex-direction: column;
   align-items: center;
 
   &__button {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+
     font-family: monospace;
     font-size: 1rem;
     color: $color-black;
-    text-decoration: none;
-    background-color: transparent;
-    border: 0;
+
+    cursor: pointer;
+    background: none;
 
     &--completed {
       color: $color-lightgreen;
     }
   }
-}
-
-.lecture-page {
-  margin: 0;
 }

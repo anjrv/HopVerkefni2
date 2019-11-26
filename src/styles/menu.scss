@@ -21,8 +21,8 @@
 
   &__button {
     padding: 10px 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: $gutter;
+    margin-left: $gutter;
 
     font-size: 1.5rem;
     font-weight: bold;
@@ -33,7 +33,6 @@
 
     border-radius: 15px;
 
-    outline: none;
     transition: $transition;
 
     @media (max-width: 495px) {
