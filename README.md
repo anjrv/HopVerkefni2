@@ -7,7 +7,9 @@ Snorri Sigurjónsson, sns26@hi.is (D5)
 <code>Vefslóð verkefnsins:</code><br/>
 Með grid: https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2Grid/<br/>
 Án grids:<br/>
-https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2/
+https://notendur.hi.is/~afk5/vefforritun/hopverkefni2/<br/>
+https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2/<br/>
+https://notendur.hi.is/sns26/vefforritun/HopVerkefni2/
 
 ## Uppsetning: 
 
