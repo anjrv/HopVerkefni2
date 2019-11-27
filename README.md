@@ -1,8 +1,8 @@
 # Hópverkefni 1 - Vöruhúsið
 Verkefnið er unnið af:<br/>
-Atli Freyr Kristjánsson<br/>
-Jaan Jaerving, jaj20@hi.is<br/>
-Snorri Sigurjónsson, sns26@hi.is
+Atli Freyr Kristjánsson, afk5@hi.is (D3)<br/>
+Jaan Jaerving, jaj20@hi.is (D1)<br/>
+Snorri Sigurjónsson, sns26@hi.is (D5)
 
 <code>Vefslóð verkefnsins:</code><br/>
 Með grid: https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2Grid/<br/>
