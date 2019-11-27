@@ -1,12 +1,12 @@
 # Hópverkefni 1 - Vöruhúsið
-Verkefnið er unnið af:
-Atli Freyr Kristjánsson
-Jaan Jaerving, jaj20@hi.is
+Verkefnið er unnið af:<br/>
+Atli Freyr Kristjánsson<br/>
+Jaan Jaerving, jaj20@hi.is<br/>
 Snorri Sigurjónsson, sns26@hi.is
 
-<code>Vefslóð verkefnsins:</code>
-Með grid: https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2Grid/
-Án grids:
+<code>Vefslóð verkefnsins:</code><br/>
+Með grid: https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2Grid/<br/>
+Án grids:<br/>
 https://notendur.hi.is/~jaj20/vefforritun/Hopverkefni2/
 
 ## Uppsetning: 
@@ -26,7 +26,7 @@ Til að keyra verkefnið og gera breytingar:
 npm run dev
 ```
 
-Í verkefninu er uppsett bæði stylelint og eslint.
+Í verkefninu er uppsett bæði stylelint og eslint.<br/>
 Til að skoða hvort þar séu villur:
 ```sh
 npm run test
@@ -65,20 +65,20 @@ inniheldur dev möppur og skrár: SASS(styles), index.js og Javascript(lib)
 inniheldur þýddar skrár fyrir CSS og Javascript
 
 Skrár í rót:
-.babelrc - Stillingar fyrir babel
-.editorconfig - Samræmir notkun á tabs og spaces, bilum og fleira
-.eslintrc - Stillingar fyrir Javascript linterinn
-.eslintignore - Það sem eslint á ekki að skoða
-.stylelintrc - Stillingar fyrir SASS linterinn
-.stylelintignore - Það sem stylelint á ekki að skoða
-.gitattributes - Stillingar fyrir git
-.gitignore - Það sem á ekki að vera sent með í git REPOið
-index.html - Upphafssíða sem gefur okkur valmynd fyrirlestra
-fyrirlestur.html - Síða sem er búið til þegar einhver fyrirlestur er valinn
-grid.css - Grid fyrirmynd sem unnið er eftir
-lectures.json - JSON af fyrirlestrum sem er verið að birta
-package.json - Tól og tæki
-package-lock.json - Dependancies fyrir tól og tæki
+.babelrc - Stillingar fyrir babel<br/>
+.editorconfig - Samræmir notkun á tabs og spaces, bilum og fleira<br/>
+.eslintrc - Stillingar fyrir Javascript linterinn<br/>
+.eslintignore - Það sem eslint á ekki að skoða<br/>
+.stylelintrc - Stillingar fyrir SASS linterinn<br/>
+.stylelintignore - Það sem stylelint á ekki að skoða<br/>
+.gitattributes - Stillingar fyrir git<br/>
+.gitignore - Það sem á ekki að vera sent með í git REPOið<br/>
+index.html - Upphafssíða sem gefur okkur valmynd fyrirlestra<br/>
+fyrirlestur.html - Síða sem er búið til þegar einhver fyrirlestur er valinn<br/>
+grid.css - Grid fyrirmynd sem unnið er eftir<br/>
+lectures.json - JSON af fyrirlestrum sem er verið að birta<br/>
+package.json - Tól og tæki<br/>
+package-lock.json - Dependancies fyrir tól og tæki<br/>
 rollup.config.js - Stillingar fyrir rollup
 
 GitHub var notað til að uppfæra og færa skrár á milli sín. 
