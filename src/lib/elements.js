@@ -3,7 +3,7 @@ import { completeLecture, loadLectures } from './storage';
 
 /**
  * Notað til að búa til þær elements sem koma fram í list
- * á index síðunni.
+ * á index síðunni
  *
  * @param {*} object tegund
  */

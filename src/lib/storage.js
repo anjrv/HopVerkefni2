@@ -35,7 +35,7 @@ export function loadFilters() {
  * Skrá eitthvað type sem filtered ef það er ekki filtered
  * Skrá eitthvað slug sem ekki filtered ef það er filtered
  *
- * @param {*} type týpan sem verður sett í filter
+ * @param {*} type týpan
  */
 export function toggleFilter(type) {
   const filters = loadFilters();

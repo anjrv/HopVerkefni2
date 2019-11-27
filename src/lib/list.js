@@ -24,7 +24,7 @@ export default class List {
 
   /**
   * Skoðar filters og fjárlægir það sem
-  * á ekki sjást á skjánum.
+  * á ekki sjást á skjánum
   *
   * @param {*} data Gögn
   */

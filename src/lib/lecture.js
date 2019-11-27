@@ -9,7 +9,7 @@ export default class Lecture {
   /**
    * Sækir gögn með réttan slug identification
    *
-   * @param {} id slug key
+   * @param {} id slug
    */
   getData(id) {
     return fetch(this.url)

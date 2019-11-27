@@ -13,7 +13,7 @@ export function empty(element) {
 /**
  * Búa til element og aukalega setja börn ef send með
  *
- * @param {string} name Nafn á element
+ * @param {string} name Nafn á elementi
  * @param  {...any} children Börn fyrir element
  */
 export function el(name, ...children) {
